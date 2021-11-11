@@ -1,5 +1,4 @@
 <?php
-	echo "A";
 ?>
 
 <html>
@@ -7,6 +6,6 @@
 		<title>Inciar sesion</title>
 	</head>
 	<body>
-
+		
 	</body>
 </html>
