@@ -15,7 +15,7 @@
 	</div>
 </main>
 
-
+<!--
 <script>
 	let user_inpt = document.getElementById("user_inpt");
 	let pass_inpt = document.getElementById("pass_inpt");
@@ -32,3 +32,4 @@
 			});
 	}
 </script>
+-->
