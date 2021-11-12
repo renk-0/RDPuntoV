@@ -1,4 +1,5 @@
-<?php
+<?php namespace Models;
+
 class Basket {
 	public int $id;
 	public int $product;
