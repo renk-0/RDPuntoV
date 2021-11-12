@@ -1,14 +1,34 @@
 <main>
 	<h1>Iniciar Sesión</h1>
-	<form enctype="application/x-www-form-urlencoded" 
-		  id="login_info" onsubmit="return false">
-
+	<div class="field">
 		<label>Usuario</label>
-		<input type="text" name="user" />
+		<input type="text" id="user_inpt" />
+	</div>
 
+	<div class="field">
 		<label>Contraseña</label>
-		<input type="password" name="pass" />
+		<input type="password" id="pass_inpt" />
+	</div>
 
-		<button>Entrar</button>
-	</form>
+	<div class="field">
+		<button id="submit_btn">Entrar</button>
+	</div>
 </main>
+
+
+<script>
+	let user_inpt = document.getElementById("user_inpt");
+	let pass_inpt = document.getElementById("pass_inpt");
+	let submit_btn = document.getElementById("submit_btn");
+	
+	submit_btn.onclick = function(e) {
+		let form_data = new FormData();
+		form_data.append("name", user_inpt.value);
+		form_data.append("pass", pass_inpt.value);
+		_api_fetch("/api/Login?fn=login", form_data)
+			.then(resp => resp.json())
+			.then(jresp => {
+				
+			});
+	}
+</script>

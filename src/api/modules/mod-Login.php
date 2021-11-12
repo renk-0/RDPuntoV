@@ -16,7 +16,8 @@ class Login extends Module {
 		$_resp = [
 			"module" => "Login",
 			"date" => (new DateTime())->format(DATE_W3C),
-			"request" => $opt
+			"request_fn" => $opt,
+			"request" => $_POST
 		];
 
 		switch($opt) {
