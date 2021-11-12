@@ -9,4 +9,3 @@ function _api_fetch(url, formdata) {
 	return fetch(url, options);
 }
 
-

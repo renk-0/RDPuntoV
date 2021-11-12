@@ -1,17 +1,21 @@
 <main>
-	<h1>Iniciar Sesión</h1>
-	<div class="field">
-		<label>Usuario</label>
-		<input type="text" id="user_inpt" />
-	</div>
+	<div id="__login_container">
+		<h1>Iniciar Sesión</h1>
+		<div class="field">
+			<label>Usuario</label>
+			<input type="text" id="user_inpt" />
+		</div>
 
-	<div class="field">
-		<label>Contraseña</label>
-		<input type="password" id="pass_inpt" />
-	</div>
+		<div class="field">
+			<label>Contraseña</label>
+			<input type="password" id="pass_inpt" />
+		</div>
 
-	<div class="field">
-		<button id="submit_btn">Entrar</button>
+		<div class="field">
+			<button id="submit_btn">Entrar</button>
+		</div>
+	</div>
+	<div id="__fogot_container">
 	</div>
 </main>
 

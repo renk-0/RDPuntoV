@@ -1,4 +1,6 @@
-<?php namespace Models;
+<?php namespace Products;
+
+use mysqli;
 
 class Product {
 	public int $id;
@@ -26,4 +28,24 @@ class Product {
 		$this->stock = $stock;
 		$this->id = $id;
 	}
+}
+
+function add_product(Product $prod, mysqli $_db) {
+	$stm = $_db->prepare(
+		"INSERT INTO Products(name, description, 
+			image, price, category, stock) 
+			VALUES (?, ?, ?, ?, ?, ?)");
+	if($stm !== false) {
+		$stm->bind_param("sssdii", 
+			$prod->name, 
+			$prod->description,
+			$prod->image,
+			$prod->price,
+			$prod->category,
+			$prod->stock);
+		if($stm->execute())
+			return true;
+	}
+	error_log($_db->error);
+	return false;
 }

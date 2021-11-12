@@ -29,7 +29,7 @@ class Login extends Module {
 			case 'chng_pass':
 				$_resp['return'] = $this->change_password(
 					$_POST['pass'] ?? "",
-					$_POST['id'] ?? 0);
+					$_SESSION['uid'] ?? 0);
 				break;
 			case 'recovery':
 				$_resp['return'] = $this->recover_pass(
@@ -54,6 +54,8 @@ class Login extends Module {
 	}
 
 	public function change_password(string $npass, int $uid) {
+		if(strlen($npass) < 5)
+			return false;
 		$pass_hash = password_hash($npass, PASSWORD_BCRYPT);
 		$ret = Users\id_update_pass($pass_hash, $uid, $this->_db);
 		return $ret;
