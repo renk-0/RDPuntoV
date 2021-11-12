@@ -1,4 +1,6 @@
-<?php
+<?php namespace Transactions;
+use DateTime;
+use mysqli;
 
 class Transaction 
 {
@@ -21,4 +23,10 @@ class Transaction
 		$this->t_date = new DateTime($t_date);
 		$this->id = $id;
 	}
+}
+
+function add_transaction(Transaction $tras, mysqli $_db) {
+	$stm = $_db->prepare(
+		"INSERT INTO Transactions(t_date, description, details, uid)
+		VALUES (?, ?, ?, ?)");
 }

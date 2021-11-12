@@ -7,19 +7,17 @@ use Common\App;
 class Productos extends Module {
 	public App $app;
 	public mysqli $_db;
+	public $details = ["module" => "Productos"];
 
 	public function __construct(App $app, mysqli &$mysql_ref) {
 		parent::__construct($app, $mysql_ref);
 	}
 
 	public function perform(string $opt) {
-		$_resp = [
-			"module" => "Priductos",
-			"date" => (new DateTime())->format(DATE_W3C),
-			"request_fn" => $opt,
-			"request" => $_POST,
-			"return" => false
-		];
+		$this->details["date"] = (new DateTime())->format(DATE_W3C);
+		$this->details["request_fn"] = $opt;
+		$this->details["request"] = $_POST;
+		$this->details["return"] = false;
 
 		switch($opt) {
 			case 'add_product':
@@ -31,12 +29,19 @@ class Productos extends Module {
 						$_POST['price'] ?? 0,
 						$_POST['category'] ?? 0,
 						$_POST['stock'] ?? 0);
-					$_resp['return'] = $this->add_product($prod);
+					$this->details['return'] = $this->add_product($prod);
+					if($this->details['return']) {
+						$trans = new Transactions\Transaction(
+							"Producto creado",
+							json_encode($this->details),
+							$_SESSION['uid']);
+						Transactions\add_transaction($trans, $this->_db);
+					}
 				}
 				break;
 		}
 
-		echo json_encode($_resp);
+		echo json_encode($this->details);
 	}
 
 	public function add_product(Products\Product $prod) {
@@ -49,9 +54,6 @@ class Productos extends Module {
 					return false;
 				}
 				$res = Products\add_product($prod, $this->_db);
-				if($res) {
-					
-				}
 				return $res;
 			}
 
