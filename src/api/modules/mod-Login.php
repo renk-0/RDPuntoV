@@ -35,6 +35,8 @@ class Login extends Module {
 				$_resp['return'] = $this->recover_pass(
 					$_POST['mail'] ?? "");
 				break;
+			case 'logout':
+				break;
 		}
 
 		echo json_encode($_resp);
@@ -54,6 +56,8 @@ class Login extends Module {
 	}
 
 	public function change_password(string $npass, int $uid) {
+		if(!isset($_SESSION['uid']))
+			return false;
 		if(strlen($npass) < 5)
 			return false;
 		$pass_hash = password_hash($npass, PASSWORD_BCRYPT);
@@ -73,4 +77,5 @@ class Login extends Module {
 		);
 		return $ret;
 	}
+
 }
