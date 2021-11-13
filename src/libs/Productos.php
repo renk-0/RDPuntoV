@@ -37,4 +37,8 @@ class Productos extends Module {
 		return $this->dao->addObject($producto, 
 			["name", "description", "image", "price", "category", "stock"]);
 	}
+
+	function eliminar(int $product) {
+		return $this->dao->deleteBy("id", $product);
+	}
 }

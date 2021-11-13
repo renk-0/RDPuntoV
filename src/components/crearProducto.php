@@ -5,8 +5,8 @@ $app->load("Categorias");
 $categorias = $app->module->leer();
 
 $app->load("Productos");
-$error = false;
 if(isset($_GET['a'])) {
+	$error = false;
 	$product_name = $_POST['name'] ?? "";
 	if(!empty($product_name)) {
 		if(isset($_FILES["product"])) {
@@ -34,12 +34,19 @@ if(isset($_GET['a'])) {
 	} else
 		$error = "Nombre vacio";
 }
-echo $error;
 ?>
+
+<?php if(isset($error)): ?>
+	<?php if($error !== false): ?>
+	<div><?= $error ?></div>
+	<?php else: ?>
+	<div>Producto creado correctamente</div>
+	<?php endif; ?>
+<?php endif; ?>
 
 <h1>Nuevo producto</h1>
 
-<form enctype="multipart/form-data" method="POST" action="?s=add_product&a=add">
+<form enctype="multipart/form-data" method="POST" action="?s=crearProducto&a=add">
 	<div class="field">
 		<label>Imagen</label>
 		<input type="file" name="product" required accept="image/*"/>
