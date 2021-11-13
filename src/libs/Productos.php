@@ -16,8 +16,13 @@ class Productos extends Module {
 	}
 
 	function leer() {
-		$productos = $this->dao->selectAll();
-		return $productos;
+		$res = $this->conn->query(
+			"SELECT p.*, c.color, c.name AS category FROM Products AS p 
+			INNER JOIN Categories AS c", null, []);
+		$data = [];
+		while($row = $res->fetch_assoc())
+			array_push($data, $row);
+		return $data;
 	}
 
 	function crear(Model\Product $producto) {

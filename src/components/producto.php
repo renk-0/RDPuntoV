@@ -1,6 +1,8 @@
 <?php
 $app->load("Productos");
-$productos = $app->module->leer();
+
+$producto = $_GET['id'] ?? 0;
+if()
 ?>
 
 <h1>Productos</h1>

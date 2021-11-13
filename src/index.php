@@ -8,7 +8,7 @@ if(empty($_GET['f']))
 $title = ucwords($_GET['f']);
 $file = "$_GET[f].php";
 if (!file_exists($file))
-	$file = "_e404.php";
+	$file = "components/_e404.php";
 
 $app = new App();
 ?>
@@ -18,7 +18,7 @@ $app = new App();
 		<title><?= $title ?></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link type="text/css" href="/public/styles.css" />
+		<link rel="stylesheet" href="/public/styles.css" />
 		<link rel="icon" href="/public/favicon.ico" type="image/x-icon">
 		<script src="/public/main.js"></script>
 	</head>

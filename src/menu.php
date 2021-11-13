@@ -3,7 +3,7 @@ $selection = $_GET['s'] ?? "";
 $file = "components/$selection.php";
 ?>
 
-<nav>Punto de venta</nav>
+<nav><h1>Punto de venta</h1></nav>
 
 <aside>
 	<a href="?s=productos">Productos</a>
