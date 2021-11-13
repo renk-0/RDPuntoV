@@ -1,4 +1,7 @@
-<?php
+<?php namespace Core;
+require_once "libs/core.php";
+__init();
+
 if(empty($_GET['f']))
 	header("Location: /login");
 
@@ -7,6 +10,7 @@ $file = "$_GET[f].php";
 if (!file_exists($file))
 	$file = "_e404.php";
 
+$app = new App();
 ?>
 
 <html>
