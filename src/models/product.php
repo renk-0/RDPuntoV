@@ -1,4 +1,4 @@
-<?php namespace Products;
+<?php namespace Model;
 
 use mysqli;
 

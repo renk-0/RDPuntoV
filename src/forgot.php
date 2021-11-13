@@ -11,9 +11,9 @@ if(isset($_GET['a'])) {
 }
 ?>
 <main>
-	<?php if($changed) { ?>
+	<?php if($changed): ?>
 		<div>La contraseña ha sido cambiada con exito</div>
-	<?php } ?>
+	<?php endif; ?>
 	<h1>Recuperar contraseña</h1>
 	<form enctype="application/x-www-form-urlencoded" method="POST" action="?a=recovery">
 		<div class="field">

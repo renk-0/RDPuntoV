@@ -1,4 +1,6 @@
 <?php 
+require_once "models/product.php";
+
 $app->load("Categorias");
 $categorias = $app->module->leer();
 
@@ -13,7 +15,7 @@ if(isset($_GET['a'])) {
 				$now = $now->getTimestamp();
 				$image_name = $_FILES["product"]["name"] . $now;
 				$image_name = md5($image_name);
-				$path = "public/images/$image_name";
+				$path = "./public/images/$image_name";
 				if(move_uploaded_file($_FILES["product"]["tmp_name"], $path)) {
 					$producto = new Model\Product(
 						$product_name,
@@ -22,7 +24,7 @@ if(isset($_GET['a'])) {
 						$_POST["price"] ?? 0,
 						$_POST["category"] ?? 1,
 						$_POST["stock"] ?? 0);
-					$app->module->add($producto);
+					$app->module->crear($producto);
 				} else
 					$error = "Error al subir la imagen";
 			} else
@@ -33,7 +35,6 @@ if(isset($_GET['a'])) {
 		$error = "Nombre vacio";
 }
 echo $error;
-print_r($_POST);
 ?>
 
 <h1>Nuevo producto</h1>

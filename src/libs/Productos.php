@@ -21,8 +21,8 @@ class Productos extends Module {
 	}
 
 	function crear(Model\Product $producto) {
-		print_r($producto);
-		return false;
+		return $this->dao->addObject($producto, 
+			["name", "description", "image", "price", "category", "stock"]);
 	}
 
 }
