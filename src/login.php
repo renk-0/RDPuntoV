@@ -14,8 +14,6 @@ if(isset($_GET['a'])) {
 ?>
 
 <main>
-	<div id="loading" hidden>Iniciando sesión...</div>
-	<div id="message" hidden></div>
 	<form action="?a=login" method="POST" enctype="application/x-www-form-urlencoded">
 		<h1>Iniciar Sesión</h1>
 		<div class="field">

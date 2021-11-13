@@ -12,10 +12,11 @@ class Connection {
 			$_ENV["port"]);
 	}
 
-	function query(string $query, string $params, ...$data) {
+	function query(string $query, ?string $params, ...$data) {
 		$stm = $this->link->prepare($query);
 		if($stm !== false) {
-			$stm->bind_param($params, ...$data);
+			if($params != null)
+				$stm->bind_param($params, ...$data);
 			if($stm->execute())
 				return $stm->get_result();
 		}
@@ -49,12 +50,12 @@ class DAO {
 	}
 
 	function selectAll() {
-		$res = $this->conn->query("SELECT * FROM $this->table", null, null);
+		$res = $this->conn->query("SELECT * FROM $this->table", null, []);
 		if($res) {
 			$data = [];
 			while($row = $res->fetch_assoc())
 				array_push($data, $row);
-			return $res;
+			return $data;
 		}
 		return false;
 	}

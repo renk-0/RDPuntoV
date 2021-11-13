@@ -1,41 +1,22 @@
-<?php
-require_once "common.php";
-require_once "../models/product.php";
-use Common\Module;
-use Common\App;
+<?php namespace Core;
+require_once "libs/core.php";
+require_once "libs/mysql.php";
+require_once "models/category.php";
+use Model;
+use DateTime;
 
 class Categorias extends Module {
 	public App $app;
-	public mysqli $_db;
-	public $details = ["module" => "Categorias"];
+	public Connection $conn;
+	public DAO $dao;
 
-	public function __construct(App $app, mysqli &$mysql_ref) {
-		parent::__construct($app, $mysql_ref);
+	function __construct(App $app) {
+		parent::__construct($app);
+		$this->dao = new DAO("Categories", $this->conn);
 	}
 
-	public function perform(string $opt) {
-		$this->details["date"] = (new DateTime())->format(DATE_W3C);
-		$this->details["request_fn"] = $opt;
-		$this->details["request"] = $_POST;
-		$this->details["return"] = false;
-		
-		if(isset($_SESSION['uid'])) {
-			switch($opt) {
-				case 'get_category':
-					break;
-				case 'categories':
-					break;
-				case 'add_caterogy':
-					break;
-				case 'remove_category':
-					break;
-				case 'update_category':
-					break;
-			}
-		}
-
-		echo json_encode($this->details);
+	function leer() {
+		$categorias = $this->dao->selectAll();
+		return $categorias;
 	}
-	
-
 }
