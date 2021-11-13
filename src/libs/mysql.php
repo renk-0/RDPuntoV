@@ -20,6 +20,9 @@ class Connection {
 			if($stm->execute())
 				return $stm->get_result();
 		}
+		error_log($this->__getError());
+		http_response_code(500);
+		echo "Error en la base de datos";
 		return false;
 	}
 

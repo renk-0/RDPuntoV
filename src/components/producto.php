@@ -1,22 +1,19 @@
 <?php
 $app->load("Productos");
 
-$producto = $_GET['id'] ?? 0;
-if()
-?>
+$producto_id = $_GET['id'] ?? 0;
+$producto = $app->module->producto($producto_id);
+print_r($producto);
+if($producto): ?>
 
-<h1>Productos</h1>
-<a href="?s=crearProducto" class="btn">Agregar producto</a>
-
+<h1></h1>
 <div class="container">
-<?php foreach($productos as $producto): ?>
-	<div>
-		<span><?= htmlentities($producto["name"]) ?></span>
-		<span><?= $producto["price"] ?></span>
-		<span class="categories" style="background-color:#<?= $producto['color'] ?>">
-			<?= htmlentities($producto["category"]) ?>
-		</span>
-		<a href="?s=producto&id=<?= $producto['id'] ?>">Editar</a>
-	<div>
-<?php endforeach; ?>
+	<h1><?= htmlentities($producto["name"]) ?></h1>
+	<img src="" />
 </div>
+
+<?php else: ?>
+
+<div>Producto no encontrado</div>
+
+<?php endif; ?>

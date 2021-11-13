@@ -7,7 +7,6 @@ if(isset($_SESSION['uid']))
 if(isset($_GET['a'])) {
 	$email = $_POST['email'] ?? "";
 	$changed = $app->module->recovery($email);
-	print_r($changed);
 }
 ?>
 <main>
