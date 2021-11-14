@@ -3,7 +3,6 @@ $app->load("Categorias");
 
 $cat_id = $_GET['id'] ?? 0;
 $category = $app->module->categoria($cat_id);
-print_r($category);
 
 if($category): ?>
 
@@ -24,3 +23,9 @@ if($category): ?>
 <div>Categoria no encontrada</div>
 
 <?php endif; ?>
+
+<style>
+	.catg {
+		margin-bottom: 2em;
+	}
+</style>

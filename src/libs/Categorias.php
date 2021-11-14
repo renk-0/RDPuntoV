@@ -26,6 +26,7 @@ class Categorias extends Module {
 	}
 
 	function crear(Model\Category $categoria) {
-		print_r($categoria);
+		return $this->dao->addObject($categoria,
+			["name", "description", "color"]);
 	}
 }

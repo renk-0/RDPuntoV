@@ -18,7 +18,7 @@ class Productos extends Module {
 	function leer() {
 		$res = $this->conn->query(
 			"SELECT p.*, c.color, c.name AS category FROM Products AS p 
-			INNER JOIN Categories AS c", null, []);
+			INNER JOIN Categories AS c ON p.category = c.id", null, []);
 		$data = [];
 		while($row = $res->fetch_assoc())
 			array_push($data, $row);

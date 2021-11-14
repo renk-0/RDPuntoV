@@ -11,7 +11,6 @@ if(isset($_GET['a'])) {
 }
 
 $categorias = $app->module->leer();
-print_r($categorias);
 ?>
 
 <h1>Categorias</h1>
@@ -21,7 +20,29 @@ print_r($categorias);
 <?php foreach($categorias as $categoria): ?>
 	<div class="catg" catg_color="<?= $categoria["color"] ?>">
 		<span class="catg-name"><?= htmlentities($categoria["name"]) ?></span>
-		<a href="?s=categoria&id=<?= $categoria['id'] ?>">Ver</a>
+		<a class="btn secondary" href="?s=categoria&id=<?= $categoria['id'] ?>">Ver</a>
 	</div>
 <?php endforeach; ?>
 </div>
+
+<style>
+.catg + .catg {
+	margin-top: 1em;
+}
+
+.container {
+	margin-top: 1em;
+}
+
+.catg {
+	display: flex;
+	align-items: center;
+	flex: row nowrap;
+	padding: 10px;
+}
+
+.catg .btn {
+	margin-left: auto;
+	margin-bottom: 0;
+}
+</style>
