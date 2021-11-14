@@ -20,8 +20,8 @@ print_r($categorias);
 <div class="container">
 <?php foreach($categorias as $categoria): ?>
 	<div class="catg" catg_color="<?= $categoria["color"] ?>">
-		<span><?= htmlentities($categoria["name"]) ?></span>
+		<span class="catg-name"><?= htmlentities($categoria["name"]) ?></span>
 		<a href="?s=categoria&id=<?= $categoria['id'] ?>">Ver</a>
-	<div>
+	</div>
 <?php endforeach; ?>
 </div>

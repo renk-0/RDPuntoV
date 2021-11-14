@@ -3,7 +3,7 @@ create table Categories(
 	primary key (id),
 	name varchar(20) not null,
 	description text not null,
-	color varchar(6) not null
+	color varchar(7) not null
 );
 
 insert into Categories(name, description, color)

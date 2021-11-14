@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	background-color: #f0f0f0;
 	color: #282828;
 	font-family: 'Poppins', sans-serif;
+}
+
+.catg {
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: -4px 4px 0 rgba(0, 0, 0, 5%);
 }
 
 /*
@@ -19,15 +31,16 @@ body {
 	margin: 0 0 0 10px;
 }
 
-input, textarea {
-	transition: all 0.1s ease-in-out;
+input, textarea, select {
+	transition: background 0.1s ease-in-out;
+	min-height: 3em;
 	font-size: 14px;
 	font-family: sans-serif;
 	box-sizing: border-box;
 	background: rgba(10, 10, 10, 1%);
 	border-width: 1px;
 	border-radius: 5px;
-	box-shadow: -10px 5px 0 rgba(0, 0, 0, 10%);
+	box-shadow: -4px 4px 0 rgba(0, 0, 0, 10%);
 	border-style: solid;
 	border-color: lightblue;
 	margin: 0;
@@ -63,10 +76,10 @@ button, .btn {
 	margin: 0 0 5px 0;
 	cursor: pointer;
 	text-decoration: none;
+	display: inline-block;
 }
 
-button.secondary, .btn.seacondary {
+button.secondary, .btn.secondary {
 	background-color: lightgray;
 	color: inherit;
 }
-

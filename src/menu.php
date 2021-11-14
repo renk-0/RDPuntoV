@@ -5,7 +5,7 @@ $selection = $_GET['s'] ?? "";
 $file = "components/$selection.php";
 ?>
 
-<div class="container">
+<div class="body-grid">
 	<nav>
 		<h1>Punto de venta</h1>
 		<div class="opts">
@@ -52,21 +52,22 @@ $file = "components/$selection.php";
 </div>
 
 <style>
-	main > form {
+	#main > form {
 		margin-left: 80px;
 		max-width: 400px;
 	}
 
-	main > form input[type="text"], 
-	main > form input[type="password"],
-	main > form input[type="file"],
-	main > form textarea {
+	#main > form input[type="text"], 
+	#main > form input[type="password"],
+	#main > form input[type="file"],
+	#main > form input[type="number"],
+	#main > form textarea {
 		width: 100%;
 	}
 </style>
 
 <style>
-	.container {
+	.body-grid {
 		width: 100%;
 		height: 100%;
 		display: grid;

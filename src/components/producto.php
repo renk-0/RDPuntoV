@@ -5,13 +5,13 @@ $producto_id = $_GET['id'] ?? 0;
 $producto = $app->module->producto($producto_id);
 if($producto): ?>
 <div class="container">
-	<div class="title">
+	<div class="product-title">
 		<h1><?= htmlentities($producto["name"]) ?></h1>
 		<span class="catg" catg_color="<?= $producto["color"] ?>">
-			<?= $producto["category"] ?>
+			<span class="catg-name"><?= $producto["category"] ?></span>
 		</span>
 	</div>
-	<div class="image">
+	<div class="product-image">
 		<img src="/public/images/<?= $producto["image"] ?>" />
 	</div>
 	<p>
@@ -37,3 +37,19 @@ if($producto): ?>
 <div>Producto no encontrado</div>
 
 <?php endif; ?>
+
+<style>
+.product-title {
+	margin-bottom: 2em;
+}
+
+.product-image {
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	border-radius: 5px;
+}
+
+</style>
