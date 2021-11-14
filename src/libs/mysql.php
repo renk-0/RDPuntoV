@@ -17,8 +17,10 @@ class Connection {
 		if($stm !== false) {
 			if($params != null)
 				$stm->bind_param($params, ...$data);
-			if($stm->execute())
-				return $stm->get_result();
+			if($stm->execute()) {
+				$res = $stm->get_result();
+				return $res? $res : true;
+			}
 		}
 		error_log($this->__getError());
 		http_response_code(500);

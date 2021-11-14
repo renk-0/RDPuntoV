@@ -19,4 +19,13 @@ class Categorias extends Module {
 		$categorias = $this->dao->selectAll();
 		return $categorias;
 	}
+
+	function categoria(int $id) {
+		$ret = $this->dao->selectBy("id", $id);
+		return $ret[0] ?? null;
+	}
+
+	function crear(Model\Category $categoria) {
+		print_r($categoria);
+	}
 }

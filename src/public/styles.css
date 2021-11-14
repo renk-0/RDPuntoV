@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+body {
+	margin: 0;
+	background-color: #f0f0f0;
+	color: #282828;
+	font-family: 'Poppins', sans-serif;
+}
+
+/*
+ * Estilos de inputs y cosas de formularios
+ * */
+
+.field {
+	margin: 0 0 20px 0;
+}
+
+.field > label {
+	margin: 0 0 0 10px;
+}
+
+input {
+	transition: all 0.1s ease-in-out;
+	font-size: 14px;
+	font-family: sans-serif;
+	box-sizing: border-box;
+	background: rgba(10, 10, 10, 1%);
+	border-width: 1px;
+	border-radius: 5px;
+	box-shadow: -10px 5px 0 rgba(0, 0, 0, 10%);
+	border-style: solid;
+	border-color: lightblue;
+	margin: 0;
+	padding: 10px;
+	outline: none;
+	display: block;
+}
+
+input:focus {
+	border-color: blue;
+	background: rgba(250, 250, 250, 5%);
+}
+
+input:hover {
+	background: rgba(250, 250, 250, 5%);
+}
+
+/*
+ * Configuracion de botones
+ * */
+button, .btn {
+	background-color: blue;
+	border: 0;
+	padding: 5px 10px;
+	color: white;
+	font-family: inherit;
+	border-radius: 5px;
+	margin: 0 0 5px 0;
+	cursor: pointer;
+}
+
+button.secondary, .btn.seacondary {
+	background-color: lightgray;
+	color: inherit;
+}
+

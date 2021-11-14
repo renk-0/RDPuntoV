@@ -21,7 +21,7 @@ $productos = $app->module->leer();
 	<div>
 		<span><?= htmlentities($producto["name"]) ?></span>
 		<span><?= $producto["price"] ?></span>
-		<span class="categories" style="background-color:#<?= $producto['color'] ?>">
+		<span class="catg" catg_color="<?= $producto['color'] ?>">
 			<?= htmlentities($producto["category"]) ?>
 		</span>
 		<a href="?s=producto&id=<?= $producto['id'] ?>">Ver</a>

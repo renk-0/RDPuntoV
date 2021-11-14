@@ -6,38 +6,18 @@ $categorias = $app->module->leer();
 
 $app->load("Productos");
 if(isset($_GET['a'])) {
-	$error = false;
-	$product_name = $_POST['name'] ?? "";
-	if(!empty($product_name)) {
-		if(isset($_FILES["product"])) {
-			if($_FILES["product"]["error"] == 0) {
-				$now = new DateTime();
-				$now = $now->getTimestamp();
-				$image_name = $_FILES["product"]["name"] . $now;
-				$image_name = md5($image_name);
-				$path = "./public/images/$image_name";
-				if(move_uploaded_file($_FILES["product"]["tmp_name"], $path)) {
-					$producto = new Model\Product(
-						$product_name,
-						$_POST["description"] ?? "",
-						$image_name,
-						$_POST["price"] ?? 0,
-						$_POST["category"] ?? 1,
-						$_POST["stock"] ?? 0);
-					$app->module->crear($producto);
-				} else
-					$error = "Error al subir la imagen";
-			} else
-				$error = "Error numero $_FILES[product][error] al subir la imagen";
-		} else
-			$error = "Sin imagen";
-	} else
-		$error = "Nombre vacio";
+	$producto = new Model\Product(
+		$_POST["name"] ?? "",
+		$_POST["description"] ?? "", "",
+		$_POST["price"] ?? 0,
+		$_POST["category"] ?? 1,
+		$_POST["stock"] ?? 0);
+	$error = $app->module->crear($producto, "product");
 }
 ?>
 
 <?php if(isset($error)): ?>
-	<?php if($error !== false): ?>
+	<?php if($error): ?>
 	<div><?= $error ?></div>
 	<?php else: ?>
 	<div>Producto creado correctamente</div>

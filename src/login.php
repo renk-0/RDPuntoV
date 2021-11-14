@@ -13,8 +13,9 @@ if(isset($_GET['a'])) {
 }
 ?>
 
-<main>
-	<form action="?a=login" method="POST" enctype="application/x-www-form-urlencoded">
+<main class="container">
+	<form action="?a=login" method="POST" 
+		  enctype="application/x-www-form-urlencoded">
 		<h1>Iniciar Sesión</h1>
 		<div class="field">
 			<label>Usuario</label>
@@ -36,3 +37,10 @@ if(isset($_GET['a'])) {
 	</form>
 </main>
 
+<style>
+	.container {
+		margin: auto;
+		width: fit-content;
+		padding: 20px;
+	}
+</style>

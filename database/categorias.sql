@@ -7,5 +7,4 @@ create table Categories(
 );
 
 insert into Categories(name, description, color)
-values ("Sin categoria", "Un producto sin categoria", "FFFFFF");
-
+values ("Sin categoria", "Un producto sin categoria", "#FFFFFF");

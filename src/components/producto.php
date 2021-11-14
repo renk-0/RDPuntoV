@@ -7,13 +7,12 @@ if($producto): ?>
 <div class="container">
 	<div class="title">
 		<h1><?= htmlentities($producto["name"]) ?></h1>
-		<span class="categ" cat_color="#<?= $producto["color"] ?>">
+		<span class="catg" catg_color="<?= $producto["color"] ?>">
 			<?= $producto["category"] ?>
 		</span>
 	</div>
 	<div class="image">
 		<img src="/public/images/<?= $producto["image"] ?>" />
-		<button>Cambiar</button>
 	</div>
 	<p>
 		<b class="title">Precio: </b>

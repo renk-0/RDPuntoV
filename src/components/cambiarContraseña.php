@@ -3,18 +3,26 @@ $app->load("Login");
 if(isset($_GET['a'])) {
 	$pass = $_POST["pass"] ?? "";
 	if(strlen($pass) > 7)
-		$app->module->change_password($pass);
-	else { ?>
-<div class="message">La contraseña debe ser de minimo 8 caracteres</div>
-<?php }?>
+		$err = $app->module->change_pass($pass);
+	else 
+		$err = "La contraseña debe tener minimo 8 caracteres";
+} 
+
+if(isset($err)): ?>
+
+	<div class="message"> <?= $err ?></div>
+
+<?php endif; ?>
+
 <h1>Cambiar contraseña</h1>
-<form enctype="application/x-www-form-urlencoded" method="POST" action="?a=change_pass">
+<form enctype="application/x-www-form-urlencoded" 
+	  method="POST" action="?s=cambiarContraseña&a=cambiar">
 	<div class="field">
 		<label>Nueva contraseña</label>
 		<input type="password" name="pass"/>
 	</div>
 
 	<div class="field">
-		<button>Enviar</button>
+		<button>Guardar</button>
 	</div>
 </form>

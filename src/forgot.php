@@ -9,7 +9,7 @@ if(isset($_GET['a'])) {
 	$changed = $app->module->recovery($email);
 }
 ?>
-<main>
+<main class="container">
 	<?php if($changed): ?>
 		<div>La contraseña ha sido cambiada con exito</div>
 	<?php endif; ?>
@@ -26,3 +26,10 @@ if(isset($_GET['a'])) {
 	</form>
 </main>
 
+<style>
+	.container {
+		margin: auto;
+		width: fit-content;
+		padding: 20px;
+	}
+</style>
