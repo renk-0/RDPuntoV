@@ -19,7 +19,7 @@ if(isset($_GET['a'])) {
 	<?php endif; ?>
 <?php endif; ?>
 
-<h1>Nuevo producto</h1>
+<h1>Nueva categoria</h1>
 
 <form enctype="application/x-www-form-urlencoded" method="POST" 
 	  action="?s=crearCategoria&a=add">
