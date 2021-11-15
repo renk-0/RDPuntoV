@@ -150,7 +150,6 @@ $file = "components/$selection.php";
 	}
 
 	.opts a img {
-		height: 30px;
 		padding: 10px;
 	}
 </style>

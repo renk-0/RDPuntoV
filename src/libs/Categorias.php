@@ -29,4 +29,20 @@ class Categorias extends Module {
 		return $this->dao->addObject($categoria,
 			["name", "description", "color"]);
 	}
+	
+	function actualizar(Model\Category $category) {
+		if(empty($category->name))
+			return "Nombre vacio";
+		if(strlen($category->color) != 7)
+			return "El color no cumple con los requisitos";
+		$updated = $this->dao->updateObject($category->id, "id",
+			$category, ["name", "description", "color"]);
+		if($updated)
+			return false;
+		return "Error al actualizar la categoria";
+	}
+	
+	function eliminar(int $id) {
+		return $this->dao->deleteBy("id", $id);
+	}
 }

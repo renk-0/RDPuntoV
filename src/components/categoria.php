@@ -13,7 +13,7 @@ if($category): ?>
 		<p><?= htmlentities($category["description"]) ?></p>
 	</div>
 	<div>
-		<a class="btn secondary" href="?s=editCategory&id=<?= $cat_id ?>">Editar</a>
+		<a class="btn secondary" href="?s=editCategoria&id=<?= $cat_id ?>">Editar</a>
 		<a class="btn danger" href="?s=categorias&id=<?= $cat_id ?>&a=delete">Eliminar</a>
 	</div>
 </div>
